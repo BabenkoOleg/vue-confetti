@@ -41,6 +41,7 @@ class Confetti {
       windSpeedMax: this.windSpeedMax,
       count: 0,
       shape: opts.shape || 'circle',
+      image: opts.image || null,
       colors: {
         opts: opts.colors || [
           'DodgerBlue',

@@ -4,12 +4,13 @@ class Particle {
    * @param {options} opts
    *   The particle options
    */
-  setup ({ ctx, W, H, colors, wind, windPosCoef, windSpeedMax, count, shape }) {
+  setup ({ ctx, W, H, colors, wind, windPosCoef, windSpeedMax, count, shape, image }) {
     this.ctx = ctx
     this.W = W
     this.H = H
     this.wind = wind
     this.shape = shape
+    this.image = image
     this.windPosCoef = windPosCoef
     this.windSpeedMax = windSpeedMax
     this.x = this.rand(-35, W + 35)
@@ -70,6 +71,15 @@ class Particle {
   }
 
   /**
+   * Draw a custom-shaped particle.
+   */
+  drawCustom () {
+    var img = new Image()
+    img.src = this.image
+    this.ctx.drawImage(img, 0, 0)
+  }
+
+  /**
    * Draw a round particle.
    */
   drawCircle () {
@@ -126,6 +136,8 @@ class Particle {
       this.drawRect()
     } else if (this.shape === 'heart') {
       this.drawHeart()
+    } else if (this.shape === 'custom') {
+      this.drawCustom()
     }
   }
 }

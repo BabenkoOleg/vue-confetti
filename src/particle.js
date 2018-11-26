@@ -74,9 +74,10 @@ class Particle {
    * Draw a custom-shaped particle.
    */
   drawCustom () {
+    var rand = this.rand(15, 20)
     var img = new Image()
     img.src = this.image
-    this.ctx.drawImage(img, 0, 0)
+    this.ctx.drawImage(img, 0, 0, rand, rand)
   }
 
   /**

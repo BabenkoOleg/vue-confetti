@@ -10,6 +10,7 @@ class Particle {
     this.H = H
     this.wind = wind
     this.shape = shape
+    this.imageSize = this.rand(10, 35)
     this.image = image
     this.windPosCoef = windPosCoef
     this.windSpeedMax = windSpeedMax
@@ -74,10 +75,9 @@ class Particle {
    * Draw a custom-shaped particle.
    */
   drawCustom () {
-    var rand = this.rand(5, 25)
     var img = new Image()
     img.src = this.image
-    this.ctx.drawImage(img, 0, 0, rand, rand)
+    this.ctx.drawImage(img, 0, 0, this.imageSize, this.imageSize)
   }
 
   /**
